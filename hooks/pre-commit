@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+cd "$(git rev-parse --show-toplevel)"
+
+if [ ! -x .venv/bin/python ]; then
+    echo "Falta .venv. Crear el entorno e instalar requirements-dev.txt."
+    exit 1
+fi
+
+echo "1/3 Formatter: Black"
+.venv/bin/python -m black --check .
+
+echo "2/3 Linter: flake8"
+.venv/bin/python -m flake8 .
+
+echo "3/3 Pruebas: unittest"
+.venv/bin/python -m unittest discover -s tests -v
+
+echo "Controles locales aprobados."

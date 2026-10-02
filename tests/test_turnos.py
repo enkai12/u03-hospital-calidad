@@ -78,9 +78,7 @@ class TurnoManagerTest(unittest.TestCase):
 
         # Assert
         self.assertEqual(gestor.turnos, ["Ana-30-OSDE-URGENTE"])
-        self.assertEqual(
-            salida.getvalue(), "Paciente premium\nTurno agregado\n"
-        )
+        self.assertEqual(salida.getvalue(), "Paciente premium\nTurno agregado\n")
 
     def test_c06_swiss_normal(self):
         """SWISS sin urgencia: premium y turno sin sufijo."""
@@ -94,9 +92,7 @@ class TurnoManagerTest(unittest.TestCase):
 
         # Assert
         self.assertEqual(gestor.turnos, ["Ana-30-SWISS"])
-        self.assertEqual(
-            salida.getvalue(), "Paciente premium\nTurno agregado\n"
-        )
+        self.assertEqual(salida.getvalue(), "Paciente premium\nTurno agregado\n")
 
     def test_c07_publica_normal(self):
         """PUBLICA sin urgencia: paciente público y turno."""
@@ -110,9 +106,7 @@ class TurnoManagerTest(unittest.TestCase):
 
         # Assert
         self.assertEqual(gestor.turnos, ["Ana-30-PUBLICA"])
-        self.assertEqual(
-            salida.getvalue(), "Paciente publico\nTurno agregado\n"
-        )
+        self.assertEqual(salida.getvalue(), "Paciente publico\nTurno agregado\n")
 
     def test_c08_otra_obra_social(self):
         """Otra obra social: sin mensaje, pero se registra."""
@@ -140,9 +134,7 @@ class TurnoManagerTest(unittest.TestCase):
 
         # Assert
         self.assertEqual(gestor.turnos, [" -1-PUBLICA"])
-        self.assertEqual(
-            salida.getvalue(), "Paciente publico\nTurno agregado\n"
-        )
+        self.assertEqual(salida.getvalue(), "Paciente publico\nTurno agregado\n")
 
     def test_c10_acumulacion_y_orden(self):
         """Dos turnos en el mismo gestor quedan en orden."""
@@ -156,13 +148,10 @@ class TurnoManagerTest(unittest.TestCase):
             gestor.procesar("Luis", 20, "PUBLICA", False)
 
         # Assert
-        self.assertEqual(
-            gestor.turnos, ["Ana-30-OSDE-URGENTE", "Luis-20-PUBLICA"]
-        )
+        self.assertEqual(gestor.turnos, ["Ana-30-OSDE-URGENTE", "Luis-20-PUBLICA"])
         self.assertEqual(
             salida.getvalue(),
-            "Paciente premium\nTurno agregado\n"
-            "Paciente publico\nTurno agregado\n",
+            "Paciente premium\nTurno agregado\nPaciente publico\nTurno agregado\n",
         )
 
 

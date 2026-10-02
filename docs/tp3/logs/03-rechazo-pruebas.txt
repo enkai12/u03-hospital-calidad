@@ -1,0 +1,56 @@
+Fecha: 2026-10-02T19:17:53.442313-03:00
+Directorio: repositorio u03-hospital-calidad
+Comando: git commit -m "Compruebo el rechazo de una prueba fallida"
+Escenario: rechazo-pruebas
+Prueba controlada: sí; alteración revertida al terminar.
+
+1/3 Formatter: Black
+All done! ✨ 🍰 ✨
+3 files would be left unchanged.
+2/3 Linter: flake8
+3/3 Pruebas: unittest
+test_c01_nombre_nulo (test_turnos.TurnoManagerTest.test_c01_nombre_nulo)
+Nombre None: no registra el turno ni imprime nada. ... FAIL
+test_c02_nombre_vacio (test_turnos.TurnoManagerTest.test_c02_nombre_vacio)
+Nombre vacío: no registra el turno ni imprime nada. ... ok
+test_c03_edad_cero (test_turnos.TurnoManagerTest.test_c03_edad_cero)
+Edad cero: el turno se rechaza. ... ok
+test_c04_edad_negativa (test_turnos.TurnoManagerTest.test_c04_edad_negativa)
+Edad negativa: el turno se rechaza. ... ok
+test_c05_osde_urgente (test_turnos.TurnoManagerTest.test_c05_osde_urgente)
+OSDE urgente: paciente premium y turno con -URGENTE. ... ok
+test_c06_swiss_normal (test_turnos.TurnoManagerTest.test_c06_swiss_normal)
+SWISS sin urgencia: premium y turno sin sufijo. ... ok
+test_c07_publica_normal (test_turnos.TurnoManagerTest.test_c07_publica_normal)
+PUBLICA sin urgencia: paciente público y turno. ... ok
+test_c08_otra_obra_social (test_turnos.TurnoManagerTest.test_c08_otra_obra_social)
+Otra obra social: sin mensaje, pero se registra. ... ok
+test_c09_nombre_con_espacio_y_edad_uno (test_turnos.TurnoManagerTest.test_c09_nombre_con_espacio_y_edad_uno)
+Un espacio no es nombre vacío y la edad 1 es válida. ... ok
+test_c10_acumulacion_y_orden (test_turnos.TurnoManagerTest.test_c10_acumulacion_y_orden)
+Dos turnos en el mismo gestor quedan en orden. ... ok
+
+======================================================================
+FAIL: test_c01_nombre_nulo (test_turnos.TurnoManagerTest.test_c01_nombre_nulo)
+Nombre None: no registra el turno ni imprime nada.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/agu/Proyectos/msii-tps/u03-hospital-calidad/tests/test_turnos.py", line 24, in test_c01_nombre_nulo
+    self.assertEqual(gestor.turnos, ["ERROR"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['ERROR']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'ERROR'
+
+- []
++ ['ERROR']
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.000s
+
+FAILED (failures=1)
+
+Código de salida: 1
+Historial sin cambios: True
