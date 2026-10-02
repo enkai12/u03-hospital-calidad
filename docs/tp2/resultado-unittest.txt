@@ -1,0 +1,25 @@
+test_c01_nombre_nulo (test_turnos.TurnoManagerTest.test_c01_nombre_nulo)
+Nombre None: no registra el turno ni imprime nada. ... ok
+test_c02_nombre_vacio (test_turnos.TurnoManagerTest.test_c02_nombre_vacio)
+Nombre vacío: no registra el turno ni imprime nada. ... ok
+test_c03_edad_cero (test_turnos.TurnoManagerTest.test_c03_edad_cero)
+Edad cero: el turno se rechaza. ... ok
+test_c04_edad_negativa (test_turnos.TurnoManagerTest.test_c04_edad_negativa)
+Edad negativa: el turno se rechaza. ... ok
+test_c05_osde_urgente (test_turnos.TurnoManagerTest.test_c05_osde_urgente)
+OSDE urgente: paciente premium y turno con -URGENTE. ... ok
+test_c06_swiss_normal (test_turnos.TurnoManagerTest.test_c06_swiss_normal)
+SWISS sin urgencia: premium y turno sin sufijo. ... ok
+test_c07_publica_normal (test_turnos.TurnoManagerTest.test_c07_publica_normal)
+PUBLICA sin urgencia: paciente público y turno. ... ok
+test_c08_otra_obra_social (test_turnos.TurnoManagerTest.test_c08_otra_obra_social)
+Otra obra social: sin mensaje, pero se registra. ... ok
+test_c09_nombre_con_espacio_y_edad_uno (test_turnos.TurnoManagerTest.test_c09_nombre_con_espacio_y_edad_uno)
+Un espacio no es nombre vacío y la edad 1 es válida. ... ok
+test_c10_acumulacion_y_orden (test_turnos.TurnoManagerTest.test_c10_acumulacion_y_orden)
+Dos turnos en el mismo gestor quedan en orden. ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.000s
+
+OK
