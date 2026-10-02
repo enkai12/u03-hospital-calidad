@@ -64,6 +64,10 @@ Comparé la base y el refactor con SonarQube Community Build 26.9.0.129388 y Son
 
 El gate local conserva las condiciones de Sonar way y suma controles de cero hallazgos de mantenibilidad, cobertura global mínima del 80 % y duplicación máxima del 3 %. La base fue rechazada y el refactor aprobó. La cobertura de líneas nuevas frente a `main` se comprueba por separado con diff-cover. Los resultados y las condiciones efectivas están en [el diagnóstico](docs/tp3/diagnostico-estatico.md) y sus archivos JSON.
 
+## Trazabilidad
+
+El [Issue #1](https://github.com/enkai12/u03-hospital-calidad/issues/1) describe la tarea con `technical-debt`; el [PR #2](https://github.com/enkai12/u03-hospital-calidad/pull/2) contiene `Closes #1` y mi [autorrevisión](https://github.com/enkai12/u03-hospital-calidad/pull/2#issuecomment-5962466520). Verifiqué el vínculo en los dos lados. Ambos siguen abiertos, sin merge: la integración requiere la revisión y aprobación de otra persona según la DoD.
+
 ## Límites y alternativas
 
 Trabajé con nombre como cadena o `None`, edad entera, obra social como cadena y urgencia booleana. Conservé también la aceptación del nombre con un espacio y de una obra social desconocida. Otra alternativa habría sido separar la clasificación en una función propia, pero preferí una corrección pequeña sobre el método existente. Los controles locales pueden omitirse si se desactiva el hook; la integración sigue dependiendo de la revisión por otra persona establecida en la DoD.

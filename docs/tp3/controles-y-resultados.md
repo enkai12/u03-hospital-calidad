@@ -36,6 +36,6 @@ En el TP2 identifiqué seis decisiones y doce salidas en el método anterior. De
 
 El diagnóstico completo está en `diagnostico-estatico.md`, con los JSON exportados de SonarQube. La complejidad ciclomática se mantuvo en 7 y no se detectaron bloques duplicados. Conservé las condiciones de Sonar way y agregué tres controles sobre todo el código para evaluar este segmento; la base fue rechazada y el refactor aprobado.
 
-La autorrevisión prepara el cambio para que otra persona lo examine. La DoD conserva ese requisito antes de integrar. El vínculo Issue–PR se verificará al publicar los recursos reales y el PR permanecerá abierto.
+La autorrevisión prepara el cambio para que otra persona lo examine. La DoD conserva ese requisito antes de integrar. Comprobé el vínculo entre [Issue #1](https://github.com/enkai12/u03-hospital-calidad/issues/1) y [PR #2](https://github.com/enkai12/u03-hospital-calidad/pull/2) en ambos lados. Ambos permanecen abiertos, sin merge. Los enlaces y la autorrevisión están en `trazabilidad-github.md`.
 
 Fuentes: Semana 1, pp. 3–6; Semana 2, pp. 1–4; Semana 3, pp. 1–5.
