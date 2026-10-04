@@ -4,15 +4,16 @@ Realicé la comprobación local el 2026-10-02, con Python 3.14.8. Conservé las 
 
 | Control | Comando | Resultado |
 |---|---|---|
-| Sintaxis | `python -m compileall -q hospital tests` | Código de salida 0. |
+| Sintaxis | `python -m compileall -q hospital tests` | Código de salida 0 (`logs/12-compilacion.txt`). |
 | Formato | `python -m black --check .` | Tres archivos conformes. |
 | Linter | `python -m flake8 .` | Código de salida 0. |
 | Suite | `python -m unittest discover -s tests -v` | Diez pruebas correctas. |
 | Cobertura de aplicación | `python -m coverage run -m unittest discover -s tests -v` y reportes | 17/17 sentencias y 10/10 ramas recorridas. |
 | Líneas nuevas | `diff-cover docs/tp3/coverage.xml --compare-branch=main --fail-under=80` | 14/14 líneas ejecutables agregadas recorridas; 100 %. |
-| Dependencias de herramientas | `pip-audit -r requirements-dev.txt` | 41 paquetes auditados; sin vulnerabilidades conocidas informadas. |
-| Actualización de paquetes instalados | `python -m pip list --outdated --format=json` | Lista vacía: no se informaron versiones posteriores disponibles. |
-| Análisis estático | SonarScanner, con cobertura XML importada | Complejidad cognitiva de 12 a 6; S1066 corregido; gate local OK con condiciones efectivas. |
+| Dependencias de herramientas | `pip-audit -r requirements-dev.txt` | 41 paquetes auditados; sin vulnerabilidades conocidas informadas, el 2 y el 4 de octubre. |
+| Actualización de paquetes instalados | `python -m pip list --outdated --format=json` | Lista vacía el 2 de octubre; cinco paquetes el 4 de octubre, que actualicé y verifiqué (`logs/10-actualizacion-dependencias.txt`). |
+| Complejidad por método | `python -m flake8 --max-complexity=1 --select=C901` | `procesar`: 7 antes y 6 después (`logs/11-complejidad-mccabe.txt`). |
+| Análisis estático | SonarScanner, con cobertura XML importada | Complejidad cognitiva de 12 a 6; S1066 corregido; deuda técnica de 5 min a 0; gate local OK con condiciones efectivas. |
 
 ## Qué demostré con el hook
 
@@ -34,7 +35,7 @@ En el TP2 identifiqué seis decisiones y doce salidas en el método anterior. De
 
 ## Alcance de la integración
 
-El diagnóstico completo está en `diagnostico-estatico.md`, con los JSON exportados de SonarQube. La complejidad ciclomática se mantuvo en 7 y no se detectaron bloques duplicados. Conservé las condiciones de Sonar way y agregué tres controles sobre todo el código para evaluar este segmento; la base fue rechazada y el refactor aprobado.
+El diagnóstico completo está en `diagnostico-estatico.md`, con los JSON exportados de SonarQube. SonarQube informa una complejidad ciclomática de 7 para el archivo en las dos versiones; por método, la de `procesar` bajó de 7 a 6. No se detectaron bloques duplicados y la deuda técnica pasó de 5 minutos a 0. Conservé las condiciones de Sonar way y agregué tres controles sobre todo el código para evaluar este segmento; la base fue rechazada y el refactor aprobado.
 
 La autorrevisión prepara el cambio para que otra persona lo examine. La DoD conserva ese requisito antes de integrar. Comprobé el vínculo entre [Issue #1](https://github.com/enkai12/u03-hospital-calidad/issues/1) y [PR #2](https://github.com/enkai12/u03-hospital-calidad/pull/2) en ambos lados. Ambos permanecen abiertos, sin merge. Los enlaces y la autorrevisión están en `trazabilidad-github.md`.
 

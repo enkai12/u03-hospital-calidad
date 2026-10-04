@@ -1,0 +1,38 @@
+{
+  "fecha_consulta": "2026-10-04T17:59:02-03:00",
+  "servidor": "SonarQube Community Build 26.9.0.129388",
+  "consulta": "GET /api/measures/component?metricKeys=sqale_index,sqale_debt_ratio,sqale_rating,reliability_rating,security_rating,code_smells,complexity,cognitive_complexity,ncloc",
+  "nota": "Consulta sobre los análisis del 2026-10-02; el código de hospital/ no cambió desde entonces. Ratings: 1.0 = A. sqale_index en minutos.",
+  "proyectos": {
+    "antes": {
+      "clave": "u03-hospital-antes",
+      "fecha_analisis": "2026-10-02T18:13:25-0300",
+      "metricas": {
+        "complexity": "7",
+        "reliability_rating": "1.0",
+        "code_smells": "1",
+        "cognitive_complexity": "12",
+        "security_rating": "1.0",
+        "ncloc": "19",
+        "sqale_debt_ratio": "0.9",
+        "sqale_index": "5",
+        "sqale_rating": "1.0"
+      }
+    },
+    "despues": {
+      "clave": "u03-hospital-despues",
+      "fecha_analisis": "2026-10-02T18:13:36-0300",
+      "metricas": {
+        "complexity": "7",
+        "reliability_rating": "1.0",
+        "code_smells": "0",
+        "cognitive_complexity": "6",
+        "security_rating": "1.0",
+        "ncloc": "17",
+        "sqale_debt_ratio": "0.0",
+        "sqale_index": "0",
+        "sqale_rating": "1.0"
+      }
+    }
+  }
+}

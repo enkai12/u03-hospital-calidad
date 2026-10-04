@@ -1,3 +1,10 @@
+---
+name: Reporte de defecto
+about: Registrar un fallo reproducible del sistema.
+title: "BUG: "
+labels: bug
+---
+
 ## Título
 BUG: [Breve resumen del fallo]
 
