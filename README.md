@@ -55,7 +55,7 @@ La medición cubre `hospital/`: 17 sentencias y 10 ramas, todas recorridas. La c
 | `sonar-project.properties` | Análisis local de la aplicación e importación de cobertura. |
 | `docs/definition-of-done.md` | Seis criterios definidos en el TP1. |
 | `docs/labels.md` | Categorías de trabajo del TP1. |
-| `.github/ISSUE_TEMPLATE/reporte-de-defecto.md` | Plantilla de incidencia del TP1, disponible en «New issue». |
+| `.github/ISSUE_TEMPLATE/reporte-de-defecto.md` | Plantilla de incidencia del TP1, con el encabezado que GitHub usa para ofrecerla en «New issue» una vez integrada a `main`. |
 | `docs/tp2/` | Matriz, resultado y medición de sentencias y ramas del TP2. |
 | `docs/tp3/` | Matriz actualizada y evidencias del TP3; los logs están numerados en orden en `docs/tp3/logs/`. |
 
