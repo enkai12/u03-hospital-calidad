@@ -11,22 +11,21 @@ class TurnoManager:
     def __init__(self):
         self.turnos = []
 
-    def procesar(
-        self, nombre_paciente, edad, obra_social, urgente
-    ):
+    def procesar(self, nombre_paciente, edad, obra_social, urgente):
         """Registra el turno si hay nombre y la edad es positiva."""
-        if nombre_paciente is not None and nombre_paciente != "":
-            if edad > 0:
-                if obra_social == "OSDE":
-                    print("Paciente premium")
-                elif obra_social == "SWISS":
-                    print("Paciente premium")
-                elif obra_social == "PUBLICA":
-                    print("Paciente publico")
+        if nombre_paciente is None or nombre_paciente == "":
+            return
+        if edad <= 0:
+            return
 
-                turno = f"{nombre_paciente}-{edad}-{obra_social}"
-                if urgente:
-                    turno += "-URGENTE"
+        if obra_social in ("OSDE", "SWISS"):
+            print("Paciente premium")
+        elif obra_social == "PUBLICA":
+            print("Paciente publico")
 
-                self.turnos.append(turno)
-                print("Turno agregado")
+        turno = f"{nombre_paciente}-{edad}-{obra_social}"
+        if urgente:
+            turno += "-URGENTE"
+
+        self.turnos.append(turno)
+        print("Turno agregado")

@@ -1,6 +1,6 @@
 # Matriz de etiquetas del Hospital Central
 
-Elegí las cuatro categorías de la lectura de Semana 1 para clasificar las incidencias y las propuestas de cambio. La definición de cada categoría procede del material; su relación con los controles de la DoD es mi aplicación al proyecto.
+Elegí las cuatro categorías de la lectura de Semana 1 para clasificar las incidencias y las propuestas de cambio. Según la lectura, las etiquetas se asignan a issues y Pull Requests para «auditar el cumplimiento de la Definition of Done antes de mezclar código». La definición de cada categoría procede del material; su relación con los controles de la DoD es mi aplicación al proyecto.
 
 | Etiqueta | Definición y uso | Justificación y relación con la DoD |
 |---|---|---|

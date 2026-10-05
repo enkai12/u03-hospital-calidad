@@ -4,7 +4,7 @@ Para el Hospital Central definí una DoD que establece cuándo un cambio está e
 
 Aunque realizo este TP de manera individual, redacté la DoD para el equipo de trabajo, como pide la consigna. Se aplica a funcionalidades nuevas, correcciones y refactorizaciones, y se mantiene durante el ciclo de desarrollo.
 
-La DoD no reemplaza los criterios de aceptación de cada tarea. Por ejemplo, que un turno urgente quede identificado como urgente es una condición del comportamiento del sistema. En cambio, que sus pruebas pasen y su documentación esté actualizada son controles de calidad que se exigen a todos los cambios.
+La DoD no reemplaza los criterios de aceptación de cada tarea. Por ejemplo, que un turno urgente quede identificado como urgente es una condición del comportamiento del sistema. En cambio, que sus pruebas pasen y su documentación esté actualizada son controles de calidad que se exigen a todos los cambios. En Gestión de Desarrollos de Software vimos que los criterios de aceptación tienen que ser claros, específicos, medibles y verificables, y que se complementan con los criterios de calidad. Por eso la DoD y los criterios de aceptación se exigen juntos.
 
 ## 1 Integridad de compilación
 
@@ -49,3 +49,16 @@ Si la documentación necesaria queda desactualizada o falta, el cambio no se int
 Para la futura implementación en Python propongo unittest para las pruebas, coverage.py para la cobertura, Black como formatter y flake8 como linter. Las elegí para este proyecto, porque la lectura deja la métrica de cobertura y las reglas de estilo a cargo de cada proyecto.
 
 Cada evidencia debe quedar fechada y asociada al cambio que demuestra. La DoD define las condiciones de integración; cumplirlas requiere ejecutar los controles y conservar sus resultados.
+
+Estos criterios retoman lo que vimos en la U01 sobre code review. Los criterios de aceptación técnica piden que el código compile, pase todos los tests y cumpla los estándares del proyecto. Además, antes de aprobar un Pull Request se exigen como mínimo pruebas, estilo, documentación y atomicidad, es decir, que el PR resuelva una sola cosa.
+
+## Lista de control para cada Pull Request
+
+| Criterio | Condición para integrar | Evidencia |
+|---|---|---|
+| 1 Integridad de compilación | Sin errores de compilación ni advertencias críticas pendientes. | Salida fechada de compileall y flake8. |
+| 2 Pruebas automatizadas | El 100 % de las pruebas del componente finaliza correctamente. | Reporte y logs de la corrida sobre el mismo código. |
+| 3 Cobertura mínima | Al menos el 80 % de las líneas ejecutables nuevas recorridas. | Comparación entre versiones y reporte de cobertura. |
+| 4 Revisión por pares | Otra persona revisa y aprueba el cambio. | Observaciones, correcciones y aprobación en el PR. |
+| 5 Gobernanza de estilo | Formatter y linter sin incumplimientos pendientes. | Salidas fechadas y configuración utilizada. |
+| 6 Documentación técnica | Contratos, funciones complejas y esquemas actualizados. | Documentación modificada y revisada en el PR. |

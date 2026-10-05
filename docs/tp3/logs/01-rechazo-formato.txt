@@ -1,0 +1,14 @@
+Fecha: 2026-10-02T19:17:52.669901-03:00
+Directorio: repositorio u03-hospital-calidad
+Comando: git commit -m "Compruebo el rechazo por formato"
+Escenario: rechazo-formato
+Prueba controlada: sí; alteración revertida al terminar.
+
+1/3 Formatter: Black
+would reformat /Users/agu/Proyectos/msii-tps/u03-hospital-calidad/hospital/turnos.py
+
+Oh no! 💥 💔 💥
+1 file would be reformatted, 2 files would be left unchanged.
+
+Código de salida: 1
+Historial sin cambios: True

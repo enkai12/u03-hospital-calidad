@@ -1,0 +1,46 @@
+Fecha: 2026-10-04T17:57:22-0300
+Código medido: hospital/turnos.py de la rama main (versión del TP2, con condicionales anidados)
+Herramienta: coverage.py 7.16.2 con medición de ramas
+
+Escenario: solo C5, C6 y C7
+Comando: python -m coverage run --branch --source=hospital -m unittest discover -s tests -k c05 -k c06 -k c07
+Ran 3 tests in 0.000s
+
+OK
+Comando: python -m coverage report -m
+Name                   Stmts   Miss Branch BrPart  Cover   Missing
+------------------------------------------------------------------
+hospital/__init__.py       0      0      0      0   100%
+hospital/turnos.py        17      0     12      3    90%   18->exit, 19->exit, 24->27
+------------------------------------------------------------------
+TOTAL                     17      0     12      3    90%
+
+Escenario: C1 a C8
+Comando: python -m coverage run --branch --source=hospital -m unittest discover -s tests -k c01 -k c02 -k c03 -k c04 -k c05 -k c06 -k c07 -k c08
+Ran 8 tests in 0.000s
+
+OK
+Comando: python -m coverage report -m
+Name                   Stmts   Miss Branch BrPart  Cover   Missing
+------------------------------------------------------------------
+hospital/__init__.py       0      0      0      0   100%
+hospital/turnos.py        17      0     12      0   100%
+------------------------------------------------------------------
+TOTAL                     17      0     12      0   100%
+
+Escenario: las diez pruebas
+Comando: python -m coverage run --branch --source=hospital -m unittest discover -s tests
+Ran 10 tests in 0.000s
+
+OK
+Comando: python -m coverage report -m
+Name                   Stmts   Miss Branch BrPart  Cover   Missing
+------------------------------------------------------------------
+hospital/__init__.py       0      0      0      0   100%
+hospital/turnos.py        17      0     12      0   100%
+------------------------------------------------------------------
+TOTAL                     17      0     12      0   100%
+
+Lectura: con C5, C6 y C7 se ejecutan las 17 sentencias, pero se recorren 9 de las 12 ramas.
+Faltan 18->exit (nombre rechazado), 19->exit (edad rechazada) y 24->27 (obra social desconocida).
+Con C1 a C8 se recorren las 12 ramas, igual que en el mapa manual de matriz-casos-y-ramas.md.
