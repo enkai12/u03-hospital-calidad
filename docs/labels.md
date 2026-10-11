@@ -1,6 +1,6 @@
 # Matriz de etiquetas del Hospital Central
 
-Usé las cuatro categorías de la lectura de Semana 1, que se asignan a issues y Pull Requests para «auditar el cumplimiento de la Definition of Done antes de mezclar código». Las definiciones salen del material; la relación con los criterios de la DoD es mi aplicación al proyecto.
+Propongo cuatro etiquetas para clasificar los issues y los Pull Requests. Sirven para que, antes de integrar, se sepa qué tipo de trabajo se está revisando y en qué criterios de la DoD hay que poner más atención.
 
 | Etiqueta | Definición | Qué controles orienta |
 |---|---|---|
@@ -9,6 +9,6 @@ Usé las cuatro categorías de la lectura de Semana 1, que se asignan a issues y
 | documentation | Actualización de contratos de APIs, diagramas de arquitectura o especificaciones técnicas. | Que la documentación describa la versión propuesta (criterio 6). |
 | feature | Desarrollo de una nueva capacidad lógica del negocio. | Las pruebas, la cobertura y la documentación de lo nuevo (criterios 2, 3 y 6). |
 
-La etiqueta dice qué tipo de trabajo se está revisando, pero no que esté terminado: cualquier cambio, lleve la etiqueta que lleve, tiene que cumplir la DoD completa.
+La etiqueta technical-debt merece una aclaración. Agrupa la deuda técnica, es decir, los atajos que se toman para entregar más rápido, como copiar código o no escribir pruebas, y que después se pagan con tiempo extra cada vez que hay que agregar algo. Tenerla separada evita que esas mejoras internas se pierdan entre los defectos y las funcionalidades nuevas.
 
-Fuente: Semana 1, sección 3.2 B, página 6.
+De todos modos, una etiqueta solo dice qué tipo de trabajo se está revisando, no que esté terminado: cualquier cambio, lleve la etiqueta que lleve, tiene que cumplir la DoD completa.
