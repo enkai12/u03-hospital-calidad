@@ -8,14 +8,14 @@ Los seis criterios quedan en una tabla que también uso como lista de control en
 
 | Criterio | Qué exijo para integrar | Cómo lo compruebo |
 |---|---|---|
-| 1 Integridad de compilación | El código compila limpio en local, sin errores ni advertencias críticas pendientes. | Python no tiene un paso de compilación visible, así que uso python -m compileall y flake8, que marca errores de sintaxis y nombres sin definir. |
+| 1 Integridad de compilación | El código compila limpio en local, sin errores ni advertencias críticas pendientes. | Desde la raíz del proyecto corro python -m compileall -q hospital tests, que compila la aplicación y las pruebas, y flake8, que marca errores de sintaxis y nombres sin definir. |
 | 2 Pruebas automatizadas | Pasa el 100 % de las pruebas unitarias y funcionales del componente modificado. Una sola prueba fallida bloquea la integración. | El reporte de la corrida, con fecha y resultado, sobre el mismo código que se propone integrar. |
 | 3 Cobertura mínima | Las pruebas recorren al menos el 80 % de las líneas ejecutables nuevas. | La comparación con la versión anterior y el reporte de cobertura. |
 | 4 Revisión por pares | Otra persona del equipo revisa el cambio buscando malas prácticas, desvíos de los patrones adoptados y complejidad innecesaria, y lo aprueba. | Las observaciones, las correcciones y la aprobación registradas en el Pull Request. |
 | 5 Gobernanza de estilo | El código pasa el formatter y el linter con las reglas del proyecto. | Las salidas de los dos controles y la configuración usada. |
 | 6 Documentación técnica | Quedan documentados los cambios en contratos, las funciones complejas y los esquemas de datos o interfaces afectados. | La documentación modificada junto con el código y revisada en el Pull Request. |
 
-Hay dos criterios que conviene explicar mejor. El umbral del 80 % se mide solo sobre las líneas ejecutables nuevas: se cuentan las líneas agregadas que las pruebas recorren y se dividen por el total de líneas agregadas. Por eso el porcentaje general del proyecto no alcanza para demostrarlo, y si un cambio no agrega líneas ejecutables, lo dejo indicado en el PR. Llegar al 80 % tampoco asegura que no haya errores: muestra que el código nuevo se ejecutó durante las pruebas, no que haga lo correcto en todos los casos.
+Hay dos criterios que conviene explicar mejor. El umbral del 80 % se mide solo sobre las líneas ejecutables nuevas: se cuentan las líneas agregadas que las pruebas recorren y se dividen por el total de líneas ejecutables agregadas. Por eso el porcentaje general del proyecto no alcanza para demostrarlo, y si un cambio no agrega líneas ejecutables, lo dejo indicado en el PR. Llegar al 80 % tampoco asegura que no haya errores: muestra que el código nuevo se ejecutó durante las pruebas, no que haga lo correcto en todos los casos.
 
 La revisión por pares es el único criterio que depende de otra persona. Antes de aprobar, quien revisa controla que el cambio venga con sus pruebas, respete el estilo, tenga la documentación necesaria y resuelva una sola cosa, porque un PR demasiado grande es difícil de revisar. Vincular el PR con un issue muestra de dónde viene el trabajo, pero no prueba que otra persona lo haya revisado.
 
