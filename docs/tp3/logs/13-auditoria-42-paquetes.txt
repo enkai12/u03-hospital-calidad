@@ -1,0 +1,18 @@
+Fecha: 2026-10-11T21:22:22-0300
+Herramienta: pip-audit 2.10.1
+Motivo: el manifiesto fija 42 paquetes, pero pip-audit -r requirements-dev.txt (logs 07 y 10) informaba 41.
+Al resolver el manifiesto, la herramienta dejaba afuera packaging==26.3.
+
+Comprobación de la diferencia
+Comando: python -m pip_audit -r requirements-dev.txt -f json
+Dependencias examinadas: 41
+Incluye packaging: False
+
+Auditoría de los 42 paquetes fijados, sin resolver dependencias
+Comando: python -m pip_audit -r requirements-dev.txt --no-deps --disable-pip -f json -o docs/tp3/pip-audit.json
+WARNING:pip_audit._cli:--no-deps is supported, but users are encouraged to fully hash their pinned dependencies
+No known vulnerabilities found
+Dependencias examinadas: 42
+packaging: 26.3
+Vulnerabilidades conocidas informadas: 0
+Paquetes fijados en requirements-dev.txt: 42

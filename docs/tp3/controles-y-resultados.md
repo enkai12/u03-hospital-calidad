@@ -10,7 +10,7 @@ Realicé la comprobación local el 2026-10-02, con Python 3.14.8. Conservé las 
 | Suite | `python -m unittest discover -s tests -v` | Diez pruebas correctas. |
 | Cobertura de aplicación | `python -m coverage run -m unittest discover -s tests -v` y reportes | 17/17 sentencias y 10/10 ramas recorridas. |
 | Líneas nuevas | `diff-cover docs/tp3/coverage.xml --compare-branch=main --fail-under=80` | 14/14 líneas ejecutables agregadas recorridas; 100 %. |
-| Dependencias de herramientas | `pip-audit -r requirements-dev.txt` | 41 paquetes auditados; sin vulnerabilidades conocidas informadas, el 2 y el 4 de octubre. |
+| Dependencias de herramientas | `pip-audit -r requirements-dev.txt --no-deps --disable-pip` | 42 paquetes auditados; sin vulnerabilidades conocidas el 2, el 4 y el 11 de octubre (con `-r` solo, la herramienta revisaba 41 y omitía `packaging`; log 13). |
 | Actualización de paquetes instalados | `python -m pip list --outdated --format=json` | Lista vacía el 2 de octubre; cinco paquetes el 4 de octubre, que actualicé y verifiqué (`logs/10-actualizacion-dependencias.txt`). |
 | Complejidad por método | `python -m flake8 --max-complexity=1 --select=C901` | `procesar`: 7 antes y 6 después (`logs/11-complejidad-mccabe.txt`). |
 | Análisis estático | SonarScanner, con cobertura XML importada | Complejidad cognitiva de 12 a 6; S1066 corregido; deuda técnica de 5 min a 0; gate local OK con condiciones efectivas. |

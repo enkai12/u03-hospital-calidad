@@ -37,11 +37,11 @@ python -m coverage xml
 python -m coverage json -o docs/tp3/coverage.json
 python -m coverage html -d docs/tp3/cobertura-html
 diff-cover docs/tp3/coverage.xml --compare-branch=main --fail-under=80
-pip-audit -r requirements-dev.txt
+pip-audit -r requirements-dev.txt --no-deps --disable-pip
 python -m pip list --outdated
 ```
 
-La medición cubre `hospital/`: 17 sentencias y 10 ramas, todas recorridas. La comparación del refactor frente a `main` cubre las 14 líneas ejecutables agregadas. El 80 % se aplica a estas líneas nuevas; el mapa de ramas se analiza por separado. La aplicación usa la biblioteca estándar; las dependencias auditadas son las 41 del manifiesto de herramientas. El 2 de octubre no había vulnerabilidades conocidas ni paquetes desactualizados. El 4 de octubre `pip list --outdated` informó cinco paquetes con una versión posterior (entre ellos Black 26.5.1 → 26.10.0): los actualicé, fijé las versiones nuevas en `requirements-dev.txt`, volví a pasar el hook y pip-audit, y quedaron sin vulnerabilidades ni paquetes desactualizados (`docs/tp3/logs/10-actualizacion-dependencias.txt`). Una versión antigua y una vulnerabilidad son comprobaciones distintas.
+La medición cubre `hospital/`: 17 sentencias y 10 ramas, todas recorridas. La comparación del refactor frente a `main` cubre las 14 líneas ejecutables agregadas. El 80 % se aplica a estas líneas nuevas; el mapa de ramas se analiza por separado. La aplicación usa la biblioteca estándar; las dependencias auditadas son los 42 paquetes del manifiesto de herramientas. El 2 de octubre no había vulnerabilidades conocidas ni paquetes desactualizados. El 4 de octubre `pip list --outdated` informó cinco paquetes con una versión posterior (entre ellos Black 26.5.1 → 26.10.0): los actualicé, fijé las versiones nuevas en `requirements-dev.txt`, volví a pasar el hook y pip-audit, y quedaron sin vulnerabilidades ni paquetes desactualizados (`docs/tp3/logs/10-actualizacion-dependencias.txt`). Al resolver el manifiesto, pip-audit revisaba 41 de esos 42 paquetes y dejaba afuera `packaging`; el 11 de octubre repetí la auditoría sobre los 42 fijados, sin resolver dependencias, y tampoco hubo vulnerabilidades (`docs/tp3/logs/13-auditoria-42-paquetes.txt`). Una versión antigua y una vulnerabilidad son comprobaciones distintas.
 
 ## Archivos
 
