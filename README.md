@@ -2,7 +2,7 @@
 
 Agustín Emiliano Sotelo Carmelich · Metodología de Sistemas II · Unidad 3
 
-Retomé el método de turnos del Hospital Central trabajado en U01 y lo adapté a Python en el TP2. En el TP3 simplifiqué sus condiciones y agregué controles locales antes de cada commit. Conservé los mensajes, el registro de turnos y el sufijo `-URGENTE`.
+Retomé el método de turnos del Hospital Central, que estaba en Java, y lo adapté a Python en el TP2. En el TP3 simplifiqué sus condiciones y agregué controles locales antes de cada commit. Conservé los mensajes, el registro de turnos y el sufijo `-URGENTE`.
 
 ## Preparación
 
@@ -71,7 +71,7 @@ El [Issue #1](https://github.com/enkai12/u03-hospital-calidad/issues/1) describe
 
 ## Límites y alternativas
 
-Trabajé con nombre como cadena o `None`, edad entera, obra social como cadena y urgencia booleana. Conservé también la aceptación del nombre con un espacio y de una obra social desconocida. Otra alternativa habría sido separar la validación, la clasificación y el formato en clases propias, como hice en el TP1 de U01, pero preferí una corrección pequeña sobre el método existente y dejo esa extracción como paso siguiente. También junté en un mismo PR el refactor y los controles, aunque lo ideal es que un PR resuelva una sola cosa; la alternativa eran dos PR. Los controles locales pueden omitirse si se desactiva el hook; la integración sigue dependiendo de la revisión por otra persona establecida en la DoD.
+Trabajé con nombre como cadena o `None`, edad entera, obra social como cadena y urgencia booleana. Conservé también la aceptación del nombre con un espacio y de una obra social desconocida. Otra alternativa habría sido separar la validación, la clasificación y el formato en clases propias, como hice en el primer práctico de la materia, pero preferí una corrección pequeña sobre el método existente y dejo esa extracción como paso siguiente. También junté en un mismo PR el refactor y los controles, aunque lo ideal es que un PR resuelva una sola cosa; la alternativa eran dos PR. Los controles locales pueden omitirse si se desactiva el hook; la integración sigue dependiendo de la revisión por otra persona establecida en la DoD.
 
 ## Material utilizado
 

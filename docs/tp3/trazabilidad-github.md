@@ -4,7 +4,7 @@ Publiqué [Hospital Central](https://github.com/enkai12/u03-hospital-calidad) y 
 
 Comprobé que el PR identifica el Issue y que el Issue muestra la referencia al PR. Ambos permanecen abiertos; no hice merge.
 
-Dejé un [comentario de autorrevisión](https://github.com/enkai12/u03-hospital-calidad/pull/2#issuecomment-5962466520) con las cinco áreas del checklist de U01-A03, p. 3, y el manejo de errores y las pruebas de los criterios de aceptación técnica, p. 4. La autorrevisión registra mis comprobaciones y no reemplaza la revisión por otra persona.
+Dejé un [comentario de autorrevisión](https://github.com/enkai12/u03-hospital-calidad/pull/2#issuecomment-5962466520) con las áreas de la lista de control de revisión de código, más el manejo de errores y las pruebas que piden los criterios de aceptación técnica. La autorrevisión registra mis comprobaciones y no reemplaza la revisión por otra persona.
 
 Los controles técnicos tienen su evidencia en los logs del hook, los reportes de cobertura, el diagnóstico de SonarQube y las consultas de dependencias. La integración espera la revisión y aprobación del criterio 4 de la DoD.
 
