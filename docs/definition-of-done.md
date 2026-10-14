@@ -9,7 +9,7 @@ Los seis criterios quedan en una tabla que también uso como lista de control en
 | Criterio | Qué exijo para integrar | Cómo lo compruebo |
 |---|---|---|
 | 1 Integridad de compilación | El código compila limpio en local, sin errores ni advertencias críticas pendientes. | Desde la raíz del proyecto corro python -m compileall -q hospital tests, que compila la aplicación y las pruebas, y flake8, que marca errores de sintaxis y nombres sin definir. |
-| 2 Pruebas automatizadas | Pasa el 100 % de las pruebas unitarias y funcionales del componente modificado. Una sola prueba fallida bloquea la integración. | El reporte de la corrida, con fecha y resultado, sobre el mismo código que se propone integrar. |
+| 2 Pruebas automatizadas | Pasa el 100 % de las pruebas unitarias y funcionales del componente modificado. Una sola prueba fallida bloquea la integración. | El reporte de los tests, con fecha y resultado, sobre el mismo código que se propone integrar. |
 | 3 Cobertura mínima | Las pruebas recorren al menos el 80 % de las líneas ejecutables nuevas. | La comparación con la versión anterior y el reporte de cobertura. |
 | 4 Revisión por pares | Otra persona del equipo revisa el cambio buscando malas prácticas, desvíos de los patrones adoptados y complejidad innecesaria, y lo aprueba. | Las observaciones, las correcciones y la aprobación registradas en el Pull Request. |
 | 5 Gobernanza de estilo | El código pasa el formatter y el linter con las reglas del proyecto. | Las salidas de los dos controles y la configuración usada. |
