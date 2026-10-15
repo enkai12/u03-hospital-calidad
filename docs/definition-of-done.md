@@ -1,51 +1,22 @@
 # Definition of Done del Hospital Central
 
-Para el Hospital Central definí una DoD que establece cuándo un cambio está en condiciones de integrarse a la rama principal. La propuesta es un acuerdo explícito, formal, público y vinculante: sus criterios deben ser conocidos por quienes trabajen en el sistema y cumplirse en su totalidad. Si uno falla, el cambio no se integra hasta corregirlo.
+La DoD define cuándo un cambio del Hospital Central está terminado y puede integrarse a la rama principal. La pensé como un acuerdo formal, público y vinculante para todo el equipo: vale para funcionalidades nuevas, correcciones y refactorizaciones, y alcanza con que falle un criterio para que el cambio no se integre hasta corregirlo.
 
-Aunque realizo este TP de manera individual, redacté la DoD para el equipo de trabajo, como pide la consigna. Se aplica a funcionalidades nuevas, correcciones y refactorizaciones, y se mantiene durante el ciclo de desarrollo.
+La DoD no reemplaza los criterios de aceptación de cada tarea, sino que los complementa. Los criterios de aceptación describen lo que una tarea puntual tiene que lograr, y por eso conviene que sean claros, específicos, medibles y verificables; por ejemplo, que un turno urgente quede registrado con la marca -URGENTE. La DoD, en cambio, fija las condiciones de calidad que se le piden a cualquier cambio, sea cual sea la tarea.
 
-La DoD no reemplaza los criterios de aceptación de cada tarea. Por ejemplo, que un turno urgente quede identificado como urgente es una condición del comportamiento del sistema. En cambio, que sus pruebas pasen y su documentación esté actualizada son controles de calidad que se exigen a todos los cambios.
+Los seis criterios quedan en una tabla que también uso como lista de control en cada Pull Request:
 
-## 1 Integridad de compilación
+| Criterio | Qué exijo para integrar | Cómo lo compruebo |
+|---|---|---|
+| 1 Integridad de compilación | El código compila limpio en local, sin errores ni advertencias críticas pendientes. | Desde la raíz del proyecto corro python -m compileall -q hospital tests, que compila la aplicación y las pruebas, y flake8, que marca errores de sintaxis y nombres sin definir. |
+| 2 Pruebas automatizadas | Pasa el 100 % de las pruebas unitarias y funcionales del componente modificado. Una sola prueba fallida bloquea la integración. | El reporte de los tests, con fecha y resultado, sobre el mismo código que se propone integrar. |
+| 3 Cobertura mínima | Las pruebas recorren al menos el 80 % de las líneas ejecutables nuevas. | La comparación con la versión anterior y el reporte de cobertura. |
+| 4 Revisión por pares | Otra persona del equipo revisa el cambio buscando malas prácticas, desvíos de los patrones adoptados y complejidad innecesaria, y lo aprueba. | Las observaciones, las correcciones y la aprobación registradas en el Pull Request. |
+| 5 Gobernanza de estilo | El código pasa el formatter y el linter con las reglas del proyecto. | Las salidas de los dos controles y la configuración usada. |
+| 6 Documentación técnica | Quedan documentados los cambios en contratos, las funciones complejas y los esquemas de datos o interfaces afectados. | La documentación modificada junto con el código y revisada en el Pull Request. |
 
-Como el proyecto está en Python, que no tiene un paso de compilación visible como Java, propongo comprobarlo con python -m compileall y con flake8, que marca errores de sintaxis y nombres sin definir. Que el programa ande al probarlo a mano no reemplaza estos controles.
+Hay dos criterios que conviene explicar mejor. El umbral del 80 % se mide solo sobre las líneas ejecutables nuevas: se cuentan las líneas agregadas que las pruebas recorren y se dividen por el total de líneas ejecutables agregadas. Por eso el porcentaje general del proyecto no alcanza para demostrarlo, y si un cambio no agrega líneas ejecutables, lo dejo indicado en el PR. Llegar al 80 % tampoco asegura que no haya errores: muestra que el código nuevo se ejecutó durante las pruebas, no que haga lo correcto en todos los casos.
 
-Un error de compilación o una advertencia crítica pendiente impide integrar el cambio. La evidencia debe ser la salida fechada del control, con el entorno y la versión del código examinada.
+La revisión por pares es el único criterio que depende de otra persona. Antes de aprobar, quien revisa controla que el cambio venga con sus pruebas, respete el estilo, tenga la documentación necesaria y resuelva una sola cosa, porque un PR demasiado grande es difícil de revisar. Vincular el PR con un issue muestra de dónde viene el trabajo, pero no prueba que otra persona lo haya revisado.
 
-## 2 Pruebas automatizadas
-
-El 100 % de las pruebas unitarias y funcionales locales asociadas al componente modificado debe finalizar correctamente. Una sola prueba fallida impide integrar el cambio, aunque las demás pasen.
-
-La evidencia debe incluir el reporte y los logs de la corrida: identificación de los casos, fecha, entorno, operador, resultado y tiempo de ejecución. El informe tiene que corresponder al mismo código que se propone integrar.
-
-## 3 Cobertura mínima
-
-Elegí el 80 % de las líneas ejecutables nuevas como umbral mínimo, tomando el ejemplo de la lectura de Semana 1. Para medirlo, se deben identificar las líneas agregadas respecto de la versión anterior al cambio y contrastarlas con el reporte de cobertura de las pruebas automáticas.
-
-El porcentaje se calcula dividiendo las líneas ejecutables nuevas recorridas por las pruebas por el total de líneas ejecutables nuevas, y multiplicando por 100. Si el resultado es menor al 80 %, el cambio no se integra. Si el cambio no agrega líneas ejecutables, se deja constancia de eso en el Pull Request.
-
-La evidencia debe mostrar la comparación entre versiones y el reporte que permite comprobar qué líneas nuevas fueron ejecutadas. El porcentaje general del proyecto no basta para demostrar este criterio. Además, llegar al 80 % no garantiza que no haya errores.
-
-## 4 Revisión por pares
-
-Otra persona con participación técnica en el equipo debe revisar el cambio antes de integrarlo. La revisión debe controlar las malas prácticas, el respeto de los patrones adoptados y los incrementos innecesarios de complejidad.
-
-Sin esa revisión y su aprobación, el cambio no se integra. La evidencia debe incluir las observaciones, las correcciones realizadas y la aprobación registrada en el Pull Request. Vincular el PR con un issue permite seguir el origen del cambio, pero no demuestra que otra persona lo haya revisado.
-
-## 5 Gobernanza de estilo
-
-El código debe cumplir las reglas de estilo configuradas para el proyecto y superar los controles del formatter y del linter. El objetivo es mantener una escritura uniforme y detectar los desvíos antes de integrar.
-
-Si alguno de esos controles informa un incumplimiento pendiente, el cambio no se integra. La evidencia debe incluir sus salidas fechadas y la configuración utilizada, de modo que el resultado pueda comprobarse sobre la versión revisada.
-
-## 6 Documentación técnica
-
-Los cambios que alteren contratos de comunicación deben quedar documentados. También deben documentarse las funciones de alta complejidad y actualizarse los esquemas de datos y las especificaciones de interfaces cuando corresponda al cambio.
-
-Si la documentación necesaria queda desactualizada o falta, el cambio no se integra. La evidencia debe ser la documentación modificada junto con el código y su revisión en el Pull Request. Para una firma pública usada por otros módulos, por ejemplo, debe quedar claro qué recibe, qué devuelve y qué cambió.
-
-## Aplicación de los controles
-
-Para la futura implementación en Python propongo unittest para las pruebas, coverage.py para la cobertura, Black como formatter y flake8 como linter. Las elegí para este proyecto, porque la lectura deja la métrica de cobertura y las reglas de estilo a cargo de cada proyecto.
-
-Cada evidencia debe quedar fechada y asociada al cambio que demuestra. La DoD define las condiciones de integración; cumplirlas requiere ejecutar los controles y conservar sus resultados.
+Para llevarla a la práctica en Python propongo unittest para las pruebas, coverage.py para la cobertura, Black como formatter y flake8 como linter. En Python, muchos errores que en Java frena el compilador pasan de largo hasta que se ejecuta el código, así que el rigor no viene puesto en el lenguaje: depende de las convenciones, del linter, de las pruebas y de la revisión del equipo. La métrica de cobertura y las reglas de estilo las define cada proyecto; estas son las que elegí para el Hospital Central.

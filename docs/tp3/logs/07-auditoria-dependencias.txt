@@ -1,0 +1,12 @@
+Fecha: 2026-10-02T19:17:53.775369-03:00
+Comando: python -m pip_audit -r requirements-dev.txt -f json -o docs/tp3/pip-audit.json
+No known vulnerabilities found
+Dependencias examinadas: 41
+Vulnerabilidades conocidas informadas: 0
+Código de salida: 0
+
+Fecha: 2026-10-02T19:18:00.151344-03:00
+Comando: python -m pip list --outdated --format=json
+[]
+Paquetes instalados con una versión posterior disponible: 0
+Código de salida: 0

@@ -1,0 +1,11 @@
+Fecha: 2026-10-04T17:57:32-0300
+Herramienta: mccabe 0.7.0, complemento de flake8
+Comando: python -m flake8 --max-complexity=1 --select=C901 antes/turnos.py hospital/turnos.py
+antes/turnos.py es la versión de main (TP2), obtenida con git show main:hospital/turnos.py
+
+antes/turnos.py:14:5: C901 'TurnoManager.procesar' is too complex (7)
+hospital/turnos.py:14:5: C901 'TurnoManager.procesar' is too complex (6)
+
+Complejidad ciclomática del método procesar: 7 antes y 6 después.
+Coincide con decisiones + 1: seis decisiones en la matriz del TP2 y cinco en la del TP3.
+--max-complexity=1 solo sirve para que flake8 informe el valor de cada función.

@@ -24,6 +24,8 @@ Segmento: `hospital/turnos.py`, método `TurnoManager.procesar`. V significa ver
 | D5 Obra social PUBLICA | C7, C9, C10 | C8 |
 | D6 Urgencia | C5, C10 | C6–C10 |
 
-Se identifican seis decisiones de control y dos salidas por decisión: 12 salidas. Los casos C1–C8 recorren las 12; C4 refuerza el límite negativo, C9 conserva el tratamiento original del espacio y C10 verifica la acumulación y el orden. El resultado es 12/12 = 100 % de las ramas del método. Lo calculé a mano a partir del código y los casos.
+Se identifican seis decisiones de control y dos salidas por decisión: 12 salidas. Los casos C1–C8 recorren las 12; C4 refuerza el límite negativo, C9 conserva el tratamiento original del espacio y C10 verifica la acumulación y el orden. El resultado es 12/12 = 100 % de las ramas del método. Lo calculé a mano a partir del código y los casos, y después lo confirmé con coverage.py: con C5, C6 y C7 se ejecutan las 17 sentencias pero solo 9 de las 12 ramas, y con C1 a C8 se recorren las 12 (`cobertura-sentencias-vs-ramas.txt`).
+
+C10 aparece como verdadera y como falsa en D3 y D6 porque hace dos llamadas: la primera es OSDE urgente y la segunda PUBLICA sin urgencia.
 
 D1 tiene dos operandos: `nombre_paciente is not None` y `nombre_paciente != ""`. C1 hace falso el primero y omite el segundo; C2 hace verdadero el primero y falso el segundo; los nombres válidos hacen verdaderos ambos.

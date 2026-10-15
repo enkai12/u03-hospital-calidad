@@ -1,0 +1,16 @@
+Fecha: 2026-10-02T17:49:11-03:00
+Comando: diff-cover docs/tp3/coverage.xml --compare-branch=main --fail-under=80 --format html:docs/tp3/cobertura-lineas-nuevas.html --format markdown:docs/tp3/cobertura-lineas-nuevas.md
+
+-------------
+Diff Coverage
+Diff: main...HEAD, staged and unstaged changes
+-------------
+hospital/turnos.py (100%)
+-------------
+Total:   14 lines
+Missing: 0 lines
+Coverage: 100%
+-------------
+
+
+Código de salida: 0

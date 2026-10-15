@@ -1,0 +1,14 @@
+Fecha de análisis: 2026-10-02T18:13:25-0300
+Versión: antes
+Comando (opciones principales): sonar-scanner -Dsonar.qualitygate.wait=true
+Gate: U03 Hospital Central
+
+18:13:21.556 INFO  SonarScanner CLI 8.1.0.6389
+18:13:23.284 INFO  Communicating with SonarQube Community Build 26.9.0.129388
+18:13:26.735 INFO  Python test coverage
+18:13:26.735 INFO  Parsing report '/Users/agu/Proyectos/msii-tps/herramientas/evaluaciones/hospital-antes/coverage.xml'
+18:13:32.169 ERROR QUALITY GATE STATUS: FAILED - View details on http://127.0.0.1:9000/dashboard?id=u03-hospital-antes
+18:13:32.196 INFO  EXECUTION FAILURE
+
+Código de salida: 3
+El código 3 corresponde al rechazo esperado por el hallazgo S1066.

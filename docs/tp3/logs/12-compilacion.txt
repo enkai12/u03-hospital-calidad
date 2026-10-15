@@ -1,0 +1,4 @@
+Fecha: 2026-10-04T17:57:33-0300
+Comando: python -m compileall -q -f hospital tests
+Código de salida: 0
+Sin errores de sintaxis en la aplicación ni en las pruebas (criterio 1 de la DoD).

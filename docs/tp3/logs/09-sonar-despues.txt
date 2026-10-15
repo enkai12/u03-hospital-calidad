@@ -1,0 +1,13 @@
+Fecha de análisis: 2026-10-02T18:13:36-0300
+Versión: despues
+Comando (opciones principales): sonar-scanner -Dsonar.qualitygate.wait=true
+Gate: U03 Hospital Central
+
+18:13:32.769 INFO  SonarScanner CLI 8.1.0.6389
+18:13:34.446 INFO  Communicating with SonarQube Community Build 26.9.0.129388
+18:13:37.759 INFO  Python test coverage
+18:13:37.759 INFO  Parsing report '/Users/agu/Proyectos/msii-tps/u03-hospital-calidad/docs/tp3/coverage.xml'
+18:13:43.172 INFO  QUALITY GATE STATUS: PASSED - View details on http://127.0.0.1:9000/dashboard?id=u03-hospital-despues
+18:13:43.243 INFO  EXECUTION SUCCESS
+
+Código de salida: 0
