@@ -35,6 +35,18 @@ python -m compileall -q hospital tests
 
 El hook ejecuta Black, flake8 y las diez pruebas en ese orden. Si un paso falla, termina con error y Git aborta el commit. Revisa la carpeta de trabajo completa. Se instala en cada copia y no sustituye la revisión del PR.
 
+## Integración y entrega continua
+
+Dos workflows de GitHub Actions en `.github/workflows/` (U04, TP 3):
+
+| Workflow | Cuándo corre | Qué hace |
+|---|---|---|
+| `ci.yml` | Cada push a una rama y cada PR | Cuatro etapas encadenadas (*fail-fast*): lint (Black, flake8, compileall) → pruebas y cobertura (80 % global y de líneas nuevas con diff-cover) → auditoría de dependencias (pip-audit) → build del zip con su SHA-256 |
+| `release.yml` | Al subir un tag `vX.Y.Z` | Toma el zip que la CI construyó para ese commit, verifica el hash y lo publica como Release, sin recompilar. Después lo despliega (simulado) en staging y, con aprobación manual, en producción |
+
+Un rollback es volver a ejecutar el job «Producción» del Release anterior: su
+artefacto ya existe y ya fue validado.
+
 ## Cobertura y dependencias
 
 ```bash
@@ -65,6 +77,7 @@ La medición cubre `hospital/`: 17 sentencias y 10 ramas, todas recorridas. La c
 | `.github/ISSUE_TEMPLATE/reporte-de-defecto.md` | Plantilla de incidencia del TP1, con el encabezado que GitHub usa para ofrecerla en «New issue» una vez integrada a `main`. |
 | `CONTRIBUTING.md` | Entorno, estilo, flujo de Git y requisitos de PR (U04, TP 2). |
 | `.github/pull_request_template.md` | Plantilla que GitHub carga en cada PR nuevo (U04, TP 2). |
+| `.github/workflows/` | CI y Release (U04, TP 3). |
 | `docs/adr/` | Decisiones de arquitectura numeradas (U04, TP 2). |
 | `docs/tp2/` | Matriz, resultado y medición de sentencias y ramas del TP2. |
 | `docs/tp3/` | Matriz actualizada y evidencias del TP3; los logs están numerados en orden en `docs/tp3/logs/`. |

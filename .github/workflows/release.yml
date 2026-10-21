@@ -1,0 +1,80 @@
+# Entrega continua del Hospital Central (U04, TP 3).
+#
+# Se dispara al subir un tag SemVer (v1.2.3). No vuelve a compilar: toma el
+# artefacto que la CI ya construyó y validó para ese mismo commit (artefacto
+# inmutable), lo publica como Release y lo promueve Staging → Producción.
+# Producción espera la aprobación de una persona: entrega continua.
+# Rollback: volver a ejecutar el job «Producción» del Release anterior.
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write # crear el Release
+  actions: read # leer el artefacto de la CI
+
+jobs:
+  publicar:
+    name: Publicar el artefacto validado
+    runs-on: ubuntu-latest
+    steps:
+      - name: Busco la corrida de CI en verde de este commit
+        id: ci
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          run_id=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow ci.yml \
+            --commit "$GITHUB_SHA" --status success --json databaseId --jq '.[0].databaseId')
+          if [ -z "$run_id" ]; then
+            echo "No hay una corrida de CI en verde para este commit: no se publica."
+            exit 1
+          fi
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+      - name: Descargo el artefacto de esa corrida
+        uses: actions/download-artifact@v8
+        with:
+          name: hospital-${{ github.sha }}
+          path: dist
+          run-id: ${{ steps.ci.outputs.run_id }}
+          github-token: ${{ github.token }}
+      - name: Verifico el hash y creo el Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd dist
+          sha256sum -c SHA256SUMS
+          gh release create "$GITHUB_REF_NAME" ./* --repo "$GITHUB_REPOSITORY" \
+            --title "$GITHUB_REF_NAME" \
+            --notes "Artefacto construido por la CI (corrida ${{ steps.ci.outputs.run_id }}) para el commit $GITHUB_SHA. $(cat SHA256SUMS)"
+
+  staging:
+    name: Staging
+    needs: publicar
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Descargo el Release y verifico que sea el mismo artefacto
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --dir paquete
+          cd paquete && sha256sum -c SHA256SUMS
+      - name: Despliego (simulado)
+        run: echo "Desplegado $GITHUB_REF_NAME en staging (simulado, no hay servidor)."
+
+  produccion:
+    name: Producción
+    needs: staging
+    runs-on: ubuntu-latest
+    environment: production # requiere aprobación manual
+    steps:
+      - name: Descargo el Release y verifico que sea el mismo artefacto
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --dir paquete
+          cd paquete && sha256sum -c SHA256SUMS
+      - name: Despliego (simulado)
+        run: echo "Desplegado $GITHUB_REF_NAME en producción (simulado, no hay servidor)."
