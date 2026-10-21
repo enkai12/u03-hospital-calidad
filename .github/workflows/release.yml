@@ -20,13 +20,14 @@ jobs:
     name: Publicar el artefacto validado
     runs-on: ubuntu-latest
     steps:
+      # Solo las corridas por push: las de un PR construyen otro commit (el merge).
       - name: Busco la corrida de CI en verde de este commit
         id: ci
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           run_id=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow ci.yml \
-            --commit "$GITHUB_SHA" --status success --json databaseId --jq '.[0].databaseId')
+            --commit "$GITHUB_SHA" --event push --status success --json databaseId --jq '.[0].databaseId')
           if [ -z "$run_id" ]; then
             echo "No hay una corrida de CI en verde para este commit: no se publica."
             exit 1
