@@ -75,7 +75,7 @@ jobs:
       - name: Empaqueto la aplicación una sola vez
         run: |
           mkdir dist
-          zip -q -r "dist/hospital-${GITHUB_SHA::7}.zip" hospital README.md -x '*__pycache__*'
+          zip -q -r "dist/hospital-${GITHUB_SHA::7}.zip" hospital README.md CHANGELOG.md -x '*__pycache__*'
           cd dist && sha256sum hospital-*.zip > SHA256SUMS && cat SHA256SUMS
       # release.yml toma este artefacto y lo publica sin volver a compilar.
       - uses: actions/upload-artifact@v7

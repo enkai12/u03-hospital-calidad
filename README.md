@@ -78,6 +78,7 @@ La medición cubre `hospital/`: 17 sentencias y 10 ramas, todas recorridas. La c
 | `CONTRIBUTING.md` | Entorno, estilo, flujo de Git y requisitos de PR (U04, TP 2). |
 | `.github/pull_request_template.md` | Plantilla que GitHub carga en cada PR nuevo (U04, TP 2). |
 | `.github/workflows/` | CI y Release (U04, TP 3). |
+| `CHANGELOG.md` | Cambios de cada versión publicada (U04, TP 3). |
 | `docs/adr/` | Decisiones de arquitectura numeradas (U04, TP 2). |
 | `docs/tp2/` | Matriz, resultado y medición de sentencias y ramas del TP2. |
 | `docs/tp3/` | Matriz actualizada y evidencias del TP3; los logs están numerados en orden en `docs/tp3/logs/`. |
