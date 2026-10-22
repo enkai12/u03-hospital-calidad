@@ -21,7 +21,7 @@ Evaluamos tres opciones:
 |---|---|---|
 | **GitFlow** | Control fino de cada versión; soporta versiones viejas | `develop`, `release/*` y `hotfix/*` son ceremonia sin beneficio para un equipo de una o dos personas sin releases programados; ramas largas que acumulan deuda de integración |
 | **GitHub Flow** | Una sola rama permanente; cada cambio pasa por un PR revisado; encaja con la DoD | Exige que `main` esté siempre en condiciones y que los PR se revisen rápido |
-| **Trunk-based** | Integración diaria, conflictos mínimos | Exige una batería de pruebas que respalde integrar sin PR revisado y feature flags; diez pruebas no alcanzan, y la DoD pide revisión antes de integrar |
+| **Trunk-based** | Integración diaria, conflictos mínimos | Exige ramas de horas, pruebas automáticas que respalden cada integración y feature flags; hoy el Hospital tiene pocas pruebas y recién arma su CI, así que le conviene llegar a eso de a poco |
 
 ## Decisión
 

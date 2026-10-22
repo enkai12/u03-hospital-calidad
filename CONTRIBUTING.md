@@ -8,8 +8,13 @@ cumple no se integra.
 
 Necesitás Python 3.14 o posterior y Git.
 
+> **Aviso transitorio.** Mientras los PR #2, #4 y #6 sigan abiertos, `main` todavía no
+> trae `requirements-dev.txt` ni `hooks/`: clonás la rama que los contiene con
+> `-b docs/3-estandares-de-colaboracion`. Cuando se integren, alcanza con el clon
+> normal y este aviso se borra.
+
 ```bash
-git clone git@github.com:enkai12/u03-hospital-calidad.git
+git clone -b docs/3-estandares-de-colaboracion git@github.com:enkai12/u03-hospital-calidad.git
 cd u03-hospital-calidad
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
